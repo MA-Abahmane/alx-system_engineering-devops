@@ -8,7 +8,3 @@ do
     "$Uid's place is protected by the passcode $password,"\
     "more info about the user here: $Uinfo"
 done < /etc/passwd
-
-
-The user root is part of the 0 gang, lives in /root and rides /bin/bash. 0's place is protected by
- the passcode x, more info about the user here: root
