@@ -6,5 +6,9 @@ do
     echo "The user $username is part of the $gid gang,"\
     "lives in $home and rides $shell."\
     "$Uid's place is protected by the passcode $password,"\
-    "moreinfo about the user here: $Uinfo"
+    "more info about the user here: $Uinfo"
 done < /etc/passwd
+
+
+The user root is part of the 0 gang, lives in /root and rides /bin/bash. 0's place is protected by
+ the passcode x, more info about the user here: root
