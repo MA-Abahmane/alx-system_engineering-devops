@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# a Bash script that displays the content of the file /etc/passwd.
+# The file /etc/passwd has already been covered in a previous project and you should be
+# familiar with it. Today we will make up a story based on it.
 while IFS=: read -r username password Uid gid Uinfo home shell
-do  
-    cmd=$(head -n 1 $home/$username)
+do
     echo "The user $username is part of the $gid gang,"\
     "lives in $home and rides $shell."\
     "$Uid's place is protected by the passcode $password,"\
