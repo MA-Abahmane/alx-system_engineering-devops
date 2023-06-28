@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# This script that emplements the FizzBuzz algorithm from range 1 to 100
-while IFS= read -r $line
+# a Bash script that displays the content of the file /etc/passwd.
+while IFS=: read -r username _ uid _ _ home _
 do
-    echo "$line"
+    echo "$username $uid $home"
 done < /etc/passwd
