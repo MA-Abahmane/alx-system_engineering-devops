@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This script is displaying all current directory files
+# get directory path
+dir=$(pwd)
+# for item in directiry
+for object in "$dir"/*
+do
+    # extract name from item
+    name=$(basename "$object")
+    # remove the first part of the file name
+    name=${name#*-}
+
+    echo "$name"
+done
