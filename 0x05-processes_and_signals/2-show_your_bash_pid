@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-ps -ef | grep bash
-# shellcheck disable=SC2009
 # 'ps -ef' is used to give us information about the running process
 # meanwhile grep returns all processes named bash
+# shellcheck disable=SC2009
+ps -ef | grep bash
