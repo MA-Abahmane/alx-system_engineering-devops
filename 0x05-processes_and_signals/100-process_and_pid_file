@@ -23,7 +23,7 @@ stoped() {
     exit
 }
 
-i=7
+i=7 # infinit loop
 while [ $i -eq 7 ]
 do
     echo "To infinity and beyond"
