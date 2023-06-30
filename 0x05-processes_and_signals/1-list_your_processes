@@ -2,4 +2,4 @@
 # Write a Bash script that displays a list of currently running processes.
 # To display a more detailed list of processes, including additional information 
 # such as the (PID), (TTY), CPU and memory usage, etc.: use ps -A
-ps -A
+ps -u
