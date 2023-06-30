@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 # a Bash script that kills the process 7-highlander.
+# sending the SIGKILL signal with kill -9 forcefully terminates the process without 
+# giving it a chance to clean up or execute any cleanup handlers.
 kill -9 $(pgrep -f 7-highlander)
