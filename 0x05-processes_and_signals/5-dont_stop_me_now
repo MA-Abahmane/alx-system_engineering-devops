@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# 'pgrep -f' retrieve the PID of a running file and 'kill' Terminates the proccess
+# we can also do: 'pkill -f filename'
+kill $(pgrep -f 4-to_infinity_and_beyond)

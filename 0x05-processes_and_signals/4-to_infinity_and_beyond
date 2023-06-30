@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Write a Bash script that displays To infinity and beyond indefinitely.
+# sleep 2 send the proccess to sleep for 2 seconds then releases it
+while [ 7 ]
+do
+    echo "To infinity and beyond"
+    sleep 2
+done

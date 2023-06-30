@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Unstopable infinit loop, only Ctrl + C can stop this one.
+trap 'echo "I am invincible!!!"' SIGTERM 
+# the trap command is used to catch the SIGTERM signal and print 'I am invincible!!!'
+while [ 7 ]
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
