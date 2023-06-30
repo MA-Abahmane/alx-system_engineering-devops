@@ -28,7 +28,7 @@ int main(void)
 {
 int i = 0;
 pid_t chld_PID;
-int zombies_to_make = 5;
+int zombies_to_make = 8;
 
 while (i < zombies_to_make)
 {
