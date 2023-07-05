@@ -1,1 +1,6 @@
 #!/usr/bin/env bash
+# A Bash script that displays all active IPv4 IPs on the machine it’s executed on.
+#  - ifconfig: provides detailed information about the network interfaces
+#  - grep 'inet': gets all the lines where 'inet' is declared
+#  - awk '{print $2}': used to print the second element in each line
+ifconfig | grep 'inet' | awk '{print $2}'
