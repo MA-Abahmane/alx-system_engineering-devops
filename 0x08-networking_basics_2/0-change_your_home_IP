@@ -9,8 +9,8 @@ cp /etc/hosts ~/hosts_cpy
 
 # update the IP adress of 'localhost' to '127.0.0.2'
 sed -i s/127.0.0.1/127.0.0.2/ ~/hosts_cpy
-# check if the IP adress already exists for 'facebook.com' and is '8.8.8.8'
-# if not set; add '8.8.8.8 facebook.com' to the file.
+# check if the IP adress already exists for 'facebook.com' as '8.8.8.8'
+# if not; add '8.8.8.8 facebook.com' to the file.
 grep -qxF '8.8.8.8 facebook.com' ~/hosts_cpy || echo '8.8.8.8 facebook.com' >> ~/hosts_cpy
 
 # over write the contents of '/etc/hosts' with the update data in '~/hosts_cpy'
