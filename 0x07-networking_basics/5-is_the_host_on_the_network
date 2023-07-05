@@ -9,4 +9,3 @@ then
 fi
 
 ping -c 5 "$IPadress"
-
