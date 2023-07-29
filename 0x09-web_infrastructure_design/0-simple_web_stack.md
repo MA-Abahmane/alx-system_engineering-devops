@@ -2,7 +2,7 @@
 ![alt text](https://github.com/MA-Abahmane/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/0-simple_web_stack.png?raw=true)
 
 
-#A lot of websites are powered by simple web infrastructure, a lot of time it is composed of a single server with a LAMP stack.
+# A lot of websites are powered by simple web infrastructure, a lot of time it is composed of a single server with a LAMP stack.
 -
 - On a whiteboard, design a one server web infrastructure that hosts the website that is reachable via www.foobar.com. Start your explanation by having a user wanting to access your website.
 
