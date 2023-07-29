@@ -1,7 +1,7 @@
 #Distributed Web Infrastructure
-[image of distributed web infrastructure](https://github.com/MA-Abahmane/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/1-distributed_web_infrastructure.png?raw=true)
+[image of distributed web infrastructure](1-distributed_web_infrastructure.png)
 
-[visit](https://www.figma.com/file/oqsLrgXwNIPoFBajBmFGd2/Untitled?type=design&node-id=0%3A1&mode=design&t=HjTJDuuwlBY0uqJS-1)
+[visit board](https://www.figma.com/file/oqsLrgXwNIPoFBajBmFGd2/Untitled?type=design&node-id=0%3A1&mode=design&t=HjTJDuuwlBY0uqJS-1)
 
 
 - The functioning of the load balancer's distribution algorithm and its configuration.
