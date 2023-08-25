@@ -57,9 +57,10 @@ file { 'resource title':
 
 Apply Puppet manifest to the local system:
 
-
 puppet apply manifest.pp
-Puppet Config Files:
+
+
+# Puppet Config Files:
 
 Main configuration file: /etc/puppetlabs/puppet/puppet.conf
 Module path: /etc/puppetlabs/code/environments/<environment>/modules
@@ -69,10 +70,8 @@ Agent Related:
 
 # Start Puppet agent run:
 
-
 puppet agent -t
 Test Puppet agent run (no changes made):
-
 
 puppet agent --test --noop
 
@@ -83,7 +82,10 @@ Trigger Puppet server compilation:
 
 
 puppetserver ca generate --certname <CERTNAME>
-Module Related:
+
+
+
+# Module Related:
 
 Generate a new Puppet module:
 
@@ -113,8 +115,9 @@ group: Manage groups.
 Puppet Language Basics
 Variables:
 
-Assign a variable:
-puppet
+
+# Assign a variable:
+
 
 $variable_name = value
 Use a variable:
@@ -126,7 +129,6 @@ notify { $message: }
 
 # Conditionals:
 
-puppet
 
 if condition {
   # Code to execute if condition is true
@@ -135,9 +137,9 @@ if condition {
 } else {
   # Code to execute if no conditions are true
 }
-Iterations (Each):
 
-puppet
+
+# Iterations (Each):
 
 each $item in $array {
   # Code to execute for each item

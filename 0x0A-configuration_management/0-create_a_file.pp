@@ -1,4 +1,4 @@
-# Using Puppet, create a file in /tmp.
+# Using Puppet, create a file in /tmp
 # Requirements:
 #     File path is /tmp/school
 #     File permission is 0744
