@@ -4,7 +4,7 @@
 #   Must use pkill
 
 exec { 'Kill_Process':
-command             => 'pkill -f killmenow',
-onlyif              => 'pgrep -f killmenow',
-path                => ['/bin/bash', '/user/bin', '/bin'],
+command => 'pkill -f killmenow',
+onlyif  => 'pgrep -f killmenow',
+path    => ['/bin/bash', '/user/bin', '/bin'],
 }
