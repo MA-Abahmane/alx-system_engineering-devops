@@ -9,12 +9,11 @@
 #   Your SSH client configuration must be configured to refuse to authenticate using a password
 
 # Make sure the file is present, if so; write contents.
-file { 'etc/ssh_config':
+file { 'ect/ssh/ssh_cofig':
 ensure => present,
-content => 
-"
-host*
-PasswordAuthentication no
-IdentityFile ~/.ssh/school
-"
+content =>"
+    host* 
+    PasswordAuthentication no
+    IdentityFile ~/.ssh/school
+    ",
 }
