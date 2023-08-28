@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# servers are the piece of software generating and serving HTML pages, let’s install one!
+# Requirements:
+#   Install nginx on your web-01
+#   server
+#   Nginx should be listening on port 80
+#   When querying Nginx at its root / with a GET request (requesting a page) using curl, it must return a page that contains the string Hello World!
+#   As an answer file, write a Bash script that configures a new Ubuntu machine to respect above requirements (this script will be run on the server itself)
+#   You can’t use systemctl for restarting nginx
+
+# Install nginx
+sudo get-app update
+sudo get-app install nginx
+
+# Nginx listen on port 80
+sudo ufw 'Nginx HTTP'
+
+# set the index page to print hello world
+echo "Hello World!" | sudo tee /var/www/index.html
+
+# test the Nginx configuration files for syntax errors
+sudo nginx -t
+
+# reaload nginx service
+sudo service nginx reload
