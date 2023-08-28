@@ -16,7 +16,7 @@ sudo get-app -y install nginx
 sudo ufw allow 'Nginx HTTP'
 
 # set the index page to print hello world
-echo "Hello World!" | sudo tee /var/www/index.html
+echo "Hello World!" | sudo tee /var/www/html/index.html
 
 # reaload nginx service
 sudo service nginx reload
