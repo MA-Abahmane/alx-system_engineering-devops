@@ -18,8 +18,5 @@ sudo ufw 'Nginx HTTP'
 # set the index page to print hello world
 echo "Hello World!" | sudo tee /var/www/index.html
 
-# test the Nginx configuration files for syntax errors
-sudo nginx -t
-
 # reaload nginx service
 sudo service nginx reload
