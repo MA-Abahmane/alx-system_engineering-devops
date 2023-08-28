@@ -26,4 +26,4 @@ privSSH_path=$4
 
 # Strict host key checking disable
 # transfers file from client to server using private key
-scp -o "StrictHostKeyChecking=no" -i "$privSSH" "$file_path" "$userName@$IP:~/"
+scp -o "StrictHostKeyChecking=no" -i "$privSSH_path" "$file_path" "$userName@$IP:~/"
