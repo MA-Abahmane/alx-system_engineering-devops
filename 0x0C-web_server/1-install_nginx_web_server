@@ -9,14 +9,11 @@
 #   You can’t use systemctl for restarting nginx
 
 # Install nginx
-sudo get-app -y update
-sudo get-app -y install nginx
-
-# Nginx listen on port 80
-sudo ufw allow 'Nginx HTTP'
+sudo apt-get update
+sudo apt-get install -y nginx
 
 # set the index page to print hello world
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
 # reaload nginx service
-sudo service nginx reload
+sudo service nginx restart
