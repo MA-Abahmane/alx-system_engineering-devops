@@ -13,7 +13,7 @@
 
 # Make sure Nginx is install
 package { 'nginx':
-  ensure => installed,
+  ensure => present,
 }
 
 # The redirection is Moved Permanently to my github and Nginx is listening on port 80
