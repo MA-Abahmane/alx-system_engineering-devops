@@ -26,12 +26,12 @@ file_line { 'install':
 }
 
 # Create web index page containing the string 'Hello World!'
-  file { '/var/www/html/index.html':
+file { '/var/www/html/index.html':
   content => 'Hello World!',
 }
 
 # Rerun nginx service
-  service { 'nginx': 
+service { 'nginx': 
   ensure  => running,
   require => Package['nginx'],
 }
