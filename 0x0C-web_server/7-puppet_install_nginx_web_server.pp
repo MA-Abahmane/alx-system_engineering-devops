@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 # Time to practice configuring your server with Puppet! Just as you did before,
 # we’d like you to install and configure an Nginx server using Puppet instead of
 # Bash. To save time and effort, you should also include resources in your
