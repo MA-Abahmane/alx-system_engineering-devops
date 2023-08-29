@@ -18,17 +18,18 @@ ensure => installed,
 }
 
 # The redirection is Moved Permanently to my GitHub page and Nginx is listening on port 80
+$redirectPage = "https://www.github.com/MA-Abahmane"
 file_line { 'install':
 ensure => 'present',
 path   => '/etc/nginx/sites-available/default',
 after  => 'listen 80 default_server;',
-line   => 'rewrite ^/redirect_me https://www.github.com/MA-Abahmane permanent;',
+line   => 'rewrite ^/redirect_me $redirectPage permanent;',
 }
 
 # Create a web index page containing the string 'Hello World!'
-$messagePage = "Hello World!"
+$pageMessage = "Hello World!"
 file { '/var/www/html/index.html':
-content => "$messagePage"
+content => "$pageMessage"
 }
 
 # Rerun nginx service
