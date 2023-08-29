@@ -28,7 +28,7 @@ line   => 'rewrite ^/redirect_me https://www.github.com/MA-Abahmane permanent;',
 # Create a web index page containing the string 'Hello World!'
 $messagePage = "Hello World!"
 file { '/var/www/html/index.html':
-content => $messagePage
+content => "$messagePage"
 }
 
 # Rerun nginx service
