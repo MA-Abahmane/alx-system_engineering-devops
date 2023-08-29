@@ -14,24 +14,24 @@
 
 # Make sure Nginx is install
 package { 'nginx':
-  ensure => installed,
+ensure => installed,
 }
 
 # The redirection is Moved Permanently to my github and Nginx is listening on port 80
 file_line { 'install':
-  ensure => 'present',
-  path   => '/etc/nginx/sites-available/default',
-  after  => 'listen 80 default_server;',
-  line   => 'rewrite ^/redirect_me https://www.github.com/MA-Abahmane permanent;',
+ensure => 'present',
+path   => '/etc/nginx/sites-available/default',
+after  => 'listen 80 default_server;',
+line   => 'rewrite ^/redirect_me https://www.github.com/MA-Abahmane permanent;',
 }
 
 # Create web index page containing the string 'Hello World!'
 file { '/var/www/html/index.html':
-  content => 'Hello World!',
+content => 'Hello World!',
 }
 
 # Rerun nginx service
 service { 'nginx': 
-  ensure  => running,
-  require => Package['nginx'],
+ensure  => running,
+require => Package['nginx'],
 }
