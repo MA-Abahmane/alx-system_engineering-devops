@@ -9,15 +9,15 @@
 #   it must return a page that contains the string Hello World!
 #  - The redirection must be a “301 Moved Permanently”
 #  - Your answer file should be a Puppet manifest containing commands to automatically
-#   configure an Ubuntu machine to respect above requirements    
+#   configure an Ubuntu machine to respect the above requirements    
 
 
-# Make sure Nginx is install
+# Make sure Nginx is installed
 package { 'nginx':
 ensure => installed,
 }
 
-# The redirection is Moved Permanently to my github and Nginx is listening on port 80
+# The redirection is Moved Permanently to my GitHub page and Nginx is listening on port 80
 file_line { 'install':
 ensure => 'present',
 path   => '/etc/nginx/sites-available/default',
@@ -25,13 +25,14 @@ after  => 'listen 80 default_server;',
 line   => 'rewrite ^/redirect_me https://www.github.com/MA-Abahmane permanent;',
 }
 
-# Create web index page containing the string 'Hello World!'
+# Create a web index page containing the string 'Hello World!'
+$messagePage = "Hello World!"
 file { '/var/www/html/index.html':
-content => 'Hello World!',
+content => $messagePage
 }
 
 # Rerun nginx service
-service { 'nginx': 
+service { 'nginx':
 ensure  => running,
 require => Package['nginx'],
 }
