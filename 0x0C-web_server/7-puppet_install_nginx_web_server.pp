@@ -32,5 +32,5 @@ file_line { 'install':
 # Rerun nginx service
   service { 'nginx': 
   ensure  => running,
-  require => package['nginx'],
+  require => Package['nginx'],
 }
