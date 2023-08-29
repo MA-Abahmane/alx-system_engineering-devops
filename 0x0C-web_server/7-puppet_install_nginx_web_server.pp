@@ -23,7 +23,7 @@ file_line { 'install':
 ensure => 'present',
 path   => '/etc/nginx/sites-available/default',
 after  => 'listen 80 default_server;',
-line   => 'rewrite ^/redirect_me $redirectPage permanent;',
+line   => "rewrite ^/redirect_me $redirectPage permanent;",
 }
 
 # Create a web index page containing the string 'Hello World!'
