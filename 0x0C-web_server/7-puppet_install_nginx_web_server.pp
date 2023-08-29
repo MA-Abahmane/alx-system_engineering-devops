@@ -30,6 +30,7 @@ file { '/var/www/html/index.html':
 content => 'Hello World!',
 }
 
+# Rerun nginx service
 service { 'nginx': 
 ensure => running,
 require => package['nginx'],
