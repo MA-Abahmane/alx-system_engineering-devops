@@ -1,28 +1,21 @@
-#!/usr/bin/env bash
-#  Here we automate the task of creating a custom HTTP header response using Puppet
-#  Requirements:
-#   - The name of the custom HTTP header must be X-Served-By
-#   - The value of the custom HTTP header must be the hostname of the server Nginx is running on
-
-# Make sure nginx is Installed
+# Ensure Nginx is installed
 package { 'nginx':
-ensure => installed,
+  ensure => installed,
 }
 
-# creating a custom HTTP header response
-exec { 'http header response':
-command  =>
-'sudo apt-get update;
-sudo apt-get install -y nginx;
-
-sudo sed -i "/server_name _/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default;
-
-sudo service nginx restart;',
-provider => shell,
+# Manage the custom HTTP header in the Nginx configuration
+file { '/etc/nginx/conf.d/custom_headers.conf':
+  ensure  => file,
+  owner   => 'root',
+  group   => 'root',
+  mode    => '0644',
+  content => "server {\n  listen 80 default_server;\n  server_name _;\n\n  location / {\n    add_header X-Served-By $hostname;\n  }\n}\n",
+  require => Package['nginx'],
+  notify  => Service['nginx'],
 }
 
-# Make sure nginx service is on
-server { 'nginx':
-ensure => running,
-enable => true,
+# Ensure Nginx service is running and enabled
+service { 'nginx':
+  ensure => running,
+  enable => true,
 }
