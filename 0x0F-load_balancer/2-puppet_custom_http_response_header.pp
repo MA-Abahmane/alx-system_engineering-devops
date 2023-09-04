@@ -2,6 +2,7 @@
 #  Requirements:
 #   - The name of the custom HTTP header must be X-Served-By
 #   - The value of the custom HTTP header must be the hostname of the server Nginx is running on
+# [Here I just ran the script I made for task 0 from puppet to the shell]
 
 # Make sure nginx is Installed
 # create a custom HTTP header response
