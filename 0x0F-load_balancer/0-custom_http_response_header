@@ -18,15 +18,15 @@ sudo sed -i "s/server_name _;/$newString/" /etc/nginx/sites-enabled/default
 # - set the 404 error page to display a given message 
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 
-# Configure the Nginx servers custom 404 page to contain the string Ceci n'est pas une page.
+# Configure the Nginx servers custom 404 page to contain the string 'Ceci n'est pas une page'.
 newString="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
 
 sudo sed -i "s/listen 80 default_server;/$newString/" /etc/nginx/sites-enabled/default
 
 
-# - Get my constom http response header
+# - Get my custom http response header
 sudo sed -i "/server_name _/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
 
 
-# - reaload nginx service to set changes
+# - reload nginx service to set changes
 sudo service nginx restart
