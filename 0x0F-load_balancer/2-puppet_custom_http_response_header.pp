@@ -7,7 +7,8 @@
 # create a custom HTTP header response
 # Reload nginx to load changes
 exec { 'custom http header':
-command  => 'sudo apt-get update;
+command  => '
+sudo apt-get update;
 sudo apt-get install -y nginx;
 
 sudo sed -i "/server_name _/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
