@@ -5,16 +5,14 @@
 
 # Make sure nginx is Installed
 exec { 'install nginx':
-  command  => '
-	sudo apt-get update -y;
+  command  => 'sudo apt-get update -y;
 	sudo apt-get install nginx -y;',
   provider => shell,
 }
 
 # creating a custom HTTP header response
 exec { 'custom http header':
-  command  => '
-	sudo sed -i "/server_name _/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
+  command  => 'sudo sed -i "/server_name _/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
 	sudo service nginx restart',
   provider => shell,
 }
