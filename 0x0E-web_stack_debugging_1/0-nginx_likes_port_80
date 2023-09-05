@@ -12,3 +12,5 @@ file="/etc/nginx/sites-enabled/default"
 
 sed -i 's/listen [0-9]* default_server/listen 80 default_server/' "$file"
 sed -i 's/listen \[::\]:[0-9]* default_server/listen \[::\]:80 default_server/' "$file"
+
+sudo service nginx restart
