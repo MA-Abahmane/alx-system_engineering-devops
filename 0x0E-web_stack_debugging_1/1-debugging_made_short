@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-file="$1"
+file="/etc/nginx/sites-enabled/default"
 sed -i -E -e 's/listen [0-9]* default_server/listen 80 default_server/g' -e 's/listen \[::\]:[0-9]* default_server/listen \[::\]:80 default_server/g' "$file"
 sudo service nginx restart
 kill "$(pgrep 'nginx' | head -1)"
