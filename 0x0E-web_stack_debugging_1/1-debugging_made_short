@@ -2,4 +2,4 @@
 file="$1"
 sed -i -E -e 's/listen [0-9]* default_server/listen 80 default_server/g' -e 's/listen \[::\]:[0-9]* default_server/listen \[::\]:80 default_server/g' "$file"
 sudo service nginx restart
-sudo service nginx stop
+kill "$(pgrep 'nginx' | head -1)"
