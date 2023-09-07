@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# A script that configures your domain zone so that the subdomain www
+# points to your load-balancer IP (lb-01). Let’s also add other
+# subdomains to make our life easier, and write a Bash script
+# that will display information about subdomains.
+
+
+function subdomains_info {
+    # get domain and subdomain names
+    local domain="$1"
+    local subdomain="$2"
+
+    # When the domain name is provided, display information for its subdomains 
+    # In order: www, lb-01, web-01 and web-02
+    # If it's not provided, it assigns an array of the subdomains
+    # ("www," "lb-01," "web-01," "web-02") to the subdomain
+    if [ -z "$subdomain" ];
+    then
+        subdomain=("www" "lb-01" "web-01" "web-02")
+    else
+        subdomain=("$subdomain")
+    fi
+
+    # In this part we uses the 'dig' command to query the DNS and obtain information
+    # about the DNS records associated with that subdomain. 
+    # retrieving the 'record type' and the 'IP address'.
+    info="The subdomain $sub is a $recordsType record and points to $target"
+    for sub in "${subdomain[@]}";
+    do
+        recordsType=$(dig "$sub.$domain" | awk '/ANSWER SECTION/ { getline; print $4 }')
+        target=$(dig "$sub.$domain" | awk '/ANSWER SECTION/ { getline; print $5 }')
+        echo "The subdomain $sub is a $recordsType record and points to $target"
+    done
+}
+
+
+# RUN function 
+subdomains_info "$1" "$2"

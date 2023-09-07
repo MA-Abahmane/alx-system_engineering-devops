@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# a certificate using certbot and configure HAproxy to accept encrypted traffic for your subdomain www.
+
+
+sudo apt update
+sudo apt install certbot
+
+sudo systemctl stop nginx
+sudo service haproxy stop
+
+
+
+sudo certbot certonly --standalone -d www.abahmane.tech
