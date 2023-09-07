@@ -16,16 +16,15 @@ function subdomains_info {
     # ("www," "lb-01," "web-01," "web-02") to the subdomain
     if [ -z "$subdomain" ];
     then
-        subdomain=("www" "lb-01" "web-01" "web-02")
+        subdomain_list=("www" "lb-01" "web-01" "web-02")
     else
-        subdomain=("$subdomain")
+        subdomain_list=("$subdomain")
     fi
 
     # In this part we uses the 'dig' command to query the DNS and obtain information
     # about the DNS records associated with that subdomain. 
     # retrieving the 'record type' and the 'IP address'.
-    info="The subdomain $sub is a $recordsType record and points to $target"
-    for sub in "${subdomain[@]}";
+    for sub in "${subdomain_list[@]}";
     do
         recordsType=$(dig "$sub.$domain" | awk '/ANSWER SECTION/ { getline; print $4 }')
         target=$(dig "$sub.$domain" | awk '/ANSWER SECTION/ { getline; print $5 }')
