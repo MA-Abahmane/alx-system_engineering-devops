@@ -33,11 +33,18 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-frontend web-front
-        bind *:443 ssl crt /etc/letsencrypt/live/www.abahmane.tech/fullchain.pem
-        default_backend web-backend
+frontend www-http
+         bind *:80
+         reqadd X-Forwarded-Proto:\ http
+         default_backend web-backend
+
+frontend www-https
+         bind *:443 ssl crt /etc/ssl/certs/ssl.pem
+         reqadd X-Forwarded-Proto:\ https
+         default_backend web-backend
 
 backend web-backend
         balance roundrobin
+        redirect scheme https if !{ ssl_fc }
         server 266807-web-01 34.203.33.172:80 check
         server 266807-web-02 54.210.234.151:80 check
