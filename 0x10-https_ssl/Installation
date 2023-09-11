@@ -11,3 +11,7 @@ sudo service haproxy stop
 
 
 sudo certbot certonly --standalone -d www.abahmane.tech
+
+
+
+sudo haproxy -c -f /etc/haproxy/haproxy.cfg
