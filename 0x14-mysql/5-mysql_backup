@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Check for the password argument
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <MySQL_Password>"
+    exit 1
+fi
+
+# Create a MySQL dump of all databases and compress it into an archive
+mysqldump -uroot -p"$1" --all-databases > backup.sql && tar -czf "$(date +%d-%m-%Y).tar.gz" backup.sql && rm backup.sql
+
+if [ $? -eq 0 ]; then
+    echo "Backup completed successfully."
+else
+    echo "Error: Unable to create the MySQL dump or archive."
+fi
