@@ -2,4 +2,6 @@
 
 # Create a MySQL dump of all databases and compress it into an archive
 passwd="$1"
-mysqldump -uroot -p"$passwd" --all-databases > backup.sql && tar -czf "$(date +%d-%m-%Y).tar.gz" backup.sql
+mysqldump -uroot -p"$passwd" --all-databases > backup.sql
+
+tar -czf $(date +%d-%m-%Y).tar.gz backup.sql
