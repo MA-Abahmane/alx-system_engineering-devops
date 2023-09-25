@@ -4,9 +4,9 @@
     script to export data in the JSON format.
  """
 
+import requests
 import json
 from sys import argv
-import requests
 
 
 def get_TODO_json(userID):
