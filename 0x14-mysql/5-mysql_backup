@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Create a MySQL dump of all databases and compress it into an archive
 passwd="$1"
 
