@@ -28,8 +28,8 @@ def get_TODO(userID):
     tasksCompleat = [task['title'] for task in todoData if task['completed']]
 
     # Print worker status
-    print(f'Employee {userName} is done with \
-          tasks({len(tasksCompleat)}/{len(todoData)}):')
+    mx = len(todoData)
+    print(f'Employee {userName} is done with tasks({len(tasksCompleat)}/{mx}):')
 
     # Print titles of tasks completed by worker
     for task in tasksCompleat:

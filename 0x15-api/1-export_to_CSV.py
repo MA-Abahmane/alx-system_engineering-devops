@@ -31,8 +31,8 @@ def get_TODO_csv(userID):
     with open(f'{userID}.csv', 'w') as Fl:
         line = ''
         for task in todoData:
-            line += f'"{userID}","{userName}",\
-                "{task["completed"]}","{task["title"]}"\n'
+            t = task["title"]
+            line += f'"{userID}","{userName}","{task["completed"]}","{t}"\n'
         Fl.write(line)
 
 
