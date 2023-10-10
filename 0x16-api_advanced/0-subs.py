@@ -7,7 +7,7 @@
      Reddit API.
 """
 
-import requests as req
+import requests
 
 
 def number_of_subscribers(subreddit):
@@ -26,8 +26,8 @@ def number_of_subscribers(subreddit):
         'User-Agent': 'Reddit'
     }
 
-    # sending a GET request to reddits API
-    response = req.get(URL, headers=headers, allow_redirects=False)
+    # sending a GET request to reddit API
+    response = requests.get(URL, headers=headers, allow_redirects=False)
 
     # successful request
     if (response.status_code == 200):
@@ -38,8 +38,6 @@ def number_of_subscribers(subreddit):
         subs_count = Jstring['data']['subscribers']
 
         return subs_count
-    elif (response.status_code == 302):
-        return 0
     # in case of error
     else:
         return 0
