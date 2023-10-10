@@ -38,6 +38,8 @@ def number_of_subscribers(subreddit):
         subs_count = Jstring['data']['subscribers']
 
         return subs_count
+    elif (response.status_code == 302):
+        return 0
     # in case of error
     else:
         return 0
