@@ -13,7 +13,7 @@ import requests
 def number_of_subscribers(subreddit):
     """
         A function that queries the Reddit API and returns the number of
-         subscribers
+        subscribers
     """
 
     # By appending "/about.json" to the subreddit's URL, we can access various
@@ -23,18 +23,17 @@ def number_of_subscribers(subreddit):
 
     # Define a custom user agent to avoid too many requests error
     headers = {
-        'User-Agent': 'Reddit'
+        'User-Agent': 'Reddit-Agent'
     }
 
-    # sending a GET request to reddit API
+    # sending a GET request to reddits API
     response = requests.get(URL, headers=headers, allow_redirects=False)
 
-    # successful request
-    if (response.status_code == 404):
+    # error handling
+    if (response.status_code >= 300):
         return 0
-    
 
-    # extract  the number of subscribers / return
-    results = response.json().get("data")
+    # parse the response to a json string
+    subs_count = response.json().get("data").get("subscribers")
 
-    return results.get("subscribers")
+    return subs_count
