@@ -20,9 +20,9 @@ def recurse(subreddit, hot_list=[], after=None, count=0):
         'User-Agent': 'Reddit'
     }
     params = {
-        'limit': 100,
+        'after': after,
         'count': count,
-        'after': after
+        'limit': 100
     }
 
     response = req.get(URL, headers=headers, params=params,
@@ -40,7 +40,7 @@ def recurse(subreddit, hot_list=[], after=None, count=0):
     else:
         return None
 
-    if (after):
+    if (after is not None):
         return recurse(subreddit, hot_list, after, count)
     else:
         return hot_list
