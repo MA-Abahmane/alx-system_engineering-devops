@@ -8,14 +8,14 @@
 import requests
 
 
-def count_words(subreddit, word_list, after=None, word_count=None):
+def count_words(subreddit, word_list, after=None, results=None):
     """
         A recursive function that queries the Reddit API, parses the title of
         all hot articles, and prints a sorted count of given keywords
     """
 
-    if word_count is None:
-        word_count = {}
+    if results is None:
+        results = {}
 
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
 
@@ -29,7 +29,7 @@ def count_words(subreddit, word_list, after=None, word_count=None):
     response = requests.get(url, params=params, headers=headers, allow_redirects=False)
 
     if response.status_code != 200:
-        return None
+        return
 
     data = response.json().get("data")
     hot_titles = [post["data"]["title"] for post in data.get("children")]
@@ -37,12 +37,15 @@ def count_words(subreddit, word_list, after=None, word_count=None):
     for title in hot_titles:
         words = title.lower().split()
         for word in word_list:
-            word_count[word] = word_count.get(word, 0) + words.count(word.lower())
+            word_count = words.count(word.lower())
+            if word_count > 0:
+                results[word] = results.get(word, 0) + word_count
 
     if not data.get("after"):
-        sorted_counts = sorted(word_count.items(), key=lambda kv: (-kv[1], kv[0].lower()))
-        for word, count in sorted_counts:
+        # Sort the results as specified
+        sorted_results = sorted(results.items(), key=lambda kv: (-kv[1], kv[0].lower()))
+        for word, count in sorted_results:
             if count > 0:
                 print(f"{word.lower()}: {count}")
     else:
-        return count_words(subreddit, word_list, after=data.get("after"), word_count=word_count)
+        return count_words(subreddit, word_list, after=data.get("after"), results=results)
