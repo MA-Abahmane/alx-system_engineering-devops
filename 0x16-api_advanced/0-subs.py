@@ -33,10 +33,8 @@ def number_of_subscribers(subreddit):
     if (response.status_code == 404):
         return 0
     
-    # parse the response to a json string
-    Jstring = response.json()
 
     # extract  the number of subscribers / return
-    subs_count = Jstring['data']['subscribers']
+    results = response.json().get("data")
 
-    return subs_count
+    return results.get("subscribers")
