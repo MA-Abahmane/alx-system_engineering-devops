@@ -25,4 +25,4 @@ def top_ten(subreddit):
         print(None)
     else:
         Js = response.json()
-        [print(child.get("data").get("title")) for child in Js.get("data").get("children")]
+        [print(post["data"]["title"]) for post in Js["data"]["children"]]
