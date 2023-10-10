@@ -9,6 +9,10 @@ def top_ten(subreddit):
     """A function that queries the Reddit API and prints the titles of the
         first 10 hot posts"""
 
+    if subreddit is None or type(subreddit) is not str:
+        print(None)
+        return
+
     URL = f'https://www.reddit.com/r/{subreddit}/hot/.json?limit=10'
 
     headers = {
