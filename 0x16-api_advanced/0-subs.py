@@ -20,7 +20,7 @@ def number_of_subscribers(subreddit):
         'User-Agent': 'Reddit-Agent'
     }
 
-    response = requests.get(URL, headers=headers)
+    response = requests.get(URL, headers=headers, allow_redirects=False)
 
     if (response.status_code == 200):
         Jstring = response.json()
