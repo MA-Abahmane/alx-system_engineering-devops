@@ -13,10 +13,10 @@ def top_ten(subreddit):
         first 10 hot posts
     """
 
-    URL = f'https://www.reddit.com/r/{subreddit}/hot.json'
+    URL = f'https://www.reddit.com/r/{subreddit}/hot/.json?limit=10'
 
     headers = {
-        'User-Agent': 'Reddit'
+        'User-Agent': 'Reddit-Agent'
     }
 
     response = req.get(URL, headers=headers, allow_redirects=False)
@@ -24,14 +24,10 @@ def top_ten(subreddit):
     if (response.status_code == 200):
         Jstring = response.json()
 
-        if 'data' in Jstring and 'children' in Jstring['data']:
-            posts = Jstring['data']['children']
-            for i, post in enumerate(posts):
-                if i <= 9:
-                    title = post['data']['title']
-                    print(title)
-        else:
-            print(None)
-            return
+        posts = Jstring['data']['children']
+        for i, post in enumerate(posts):
+            if i <= 9:
+                title = post['data']['title']
+                print(title)
     else:
         print(None)
