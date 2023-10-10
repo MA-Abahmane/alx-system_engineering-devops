@@ -4,7 +4,7 @@
     of subscribers for a given subreddit.
 """
 
-import requests
+import requests as req
 
 
 def number_of_subscribers(subreddit):
@@ -19,7 +19,7 @@ def number_of_subscribers(subreddit):
         'User-Agent': 'Reddit-Agent'
     }
 
-    response = requests.get(URL, headers=headers, allow_redirects=False)
+    response = req.get(URL, headers=headers, allow_redirects=False)
 
     if (response.status_code == 200):
         Jstring = response.json()
