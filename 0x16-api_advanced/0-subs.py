@@ -16,6 +16,9 @@ def number_of_subscribers(subreddit):
         subscribers
     """
 
+    if subreddit is None or type(subreddit) is not str:
+        return 0
+
     URL = f'https://www.reddit.com/r/{subreddit}/about.json'
 
 
