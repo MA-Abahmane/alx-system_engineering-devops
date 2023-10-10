@@ -7,8 +7,10 @@
 
 
 def number_of_subscribers(subreddit):
-    """A function that queries the Reddit API and returns the number of
-        subscribers"""
+    """
+        A function that queries the Reddit API and returns the number of
+        subscribers
+    """
     import requests
 
 
