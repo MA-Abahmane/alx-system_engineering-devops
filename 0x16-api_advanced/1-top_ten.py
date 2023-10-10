@@ -21,6 +21,10 @@ def top_ten(subreddit):
 
     response = req.get(URL, headers=headers, allow_redirects=False)
 
+
+    if (response.status_code == 404):
+        print(None)
+        return
     if (response.status_code == 200):
         Jstring = response.json()
 
