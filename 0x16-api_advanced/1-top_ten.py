@@ -9,22 +9,14 @@ def top_ten(subreddit):
     """A function that queries the Reddit API and prints the titles of the
         first 10 hot posts"""
 
-    if subreddit is None or type(subreddit) is not str:
-        print(None)
-        return
-
     URL = f'https://www.reddit.com/r/{subreddit}/hot/.json?limit=10'
 
     headers = {
         'User-Agent': 'Reddit-Agent'
     }
 
-    response = req.get(URL, headers=headers, allow_redirects=False)
+    response = req.get(URL, headers=headers)
 
-
-    if (response.status_code == 404):
-        print(None)
-        return
     if (response.status_code == 200):
         Jstring = response.json()
 
