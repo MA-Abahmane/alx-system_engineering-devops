@@ -9,8 +9,8 @@ import requests as req
 
 def top_ten(subreddit):
     """
-    A function that queries the Reddit API and prints the titles of the
-    first 10 hot posts
+        A function that queries the Reddit API and prints the titles of the
+        first 10 hot posts
     """
 
     URL = f'https://www.reddit.com/r/{subreddit}/hot.json?limit=10'
