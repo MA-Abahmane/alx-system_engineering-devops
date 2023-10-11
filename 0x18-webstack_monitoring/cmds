@@ -1,0 +1,6 @@
+
+# start datadog monitoring service [Run after installing datadog]
+sudo systemctl start datadog-agent
+
+# restart
+sudo service datadog-agent restart
