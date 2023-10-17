@@ -1,15 +1,14 @@
--- Create a Puppet script that modifies the open file limit for Nginx in the /etc/default/nginx file,
--- you can use the file and exec resources. Here's an example Puppet manifest:
+# Create a Puppet script that modifies the open file limit for Nginx in the /etc/default/nginx file,
+# you can use the file and exec resources. Here's an example Puppet manifest:
 
-class nginx_disable_ulimit {
-  package { 'augeas-tools':
-    ensure => installed,
-  }
+# Remove the line setting ULimit 
+exec { 'remove_Nginx_ulimit':
+  command => 'sed -i "/^ULIMIT/d" /etc/default/nginx',
+  path    => ['/bin', '/usr/bin'],
+}
 
-  augeas { 'comment_ulimit_line':
-    context => '/files/etc/default/nginx',
-    changes => [
-      'set ULIMIT "# ULIMIT line commented by Puppet"',
-    ],
-  }
+# Restart Nginx service
+exec { 'restart-nginx':
+  command => 'service nginx restart',
+  path    => ['/bin', '/usr/bin'],
 }
