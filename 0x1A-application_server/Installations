@@ -1,0 +1,4 @@
+# Installations:
+
+# Install the net-tools package on your server:
+sudo apt install -y net-tools
