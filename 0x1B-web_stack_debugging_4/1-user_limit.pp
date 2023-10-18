@@ -2,6 +2,6 @@
 
 # Removes all hard and soft limits from the holberton user
 exec { 'RemoveLimitsDel':
-    command  => "sed -i "/^holberton/d" /etc/security/limits.conf",
+    command  => 'sed -i "/^holberton/d" /etc/security/limits.conf',
     provider => shell,
 }
