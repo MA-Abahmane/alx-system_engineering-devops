@@ -1,4 +1,35 @@
 # Installations:
 
+
 # Install the net-tools package on your server:
 sudo apt install -y net-tools
+
+
+# Install Python virtual environment package
+sudo apt install python3.8-venv 
+# Use virtual environment
+## create ve
+python3 -m venv (VE Name)
+## run ve
+source (VE Name)/bin/activate
+## close ve
+deactivate
+
+
+# Install Flask
+sudo apt install python3-pip
+pip3 install flask
+
+
+# Install Gunicorn
+pip3 install gunicorn OR sudo apt install gunicorn
+# Run Gunicorn to port 5000
+gunicorn --bind 0.0.0.0:5000 web_flask.0-hello_route:app
+
+
+# Test/Restart Nginx config
+sudo nginx -t
+sudo service nginx restart
+
+# Kill all processes on port
+kill -9 $(sudo lsof -t -i:5000)
